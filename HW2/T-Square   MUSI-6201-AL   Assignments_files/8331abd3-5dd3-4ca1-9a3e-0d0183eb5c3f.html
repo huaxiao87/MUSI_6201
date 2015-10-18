@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0087)https://t-square.gatech.edu/portal/tool/8331abd3-5dd3-4ca1-9a3e-0d0183eb5c3f?panel=Main -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <title>Assignments</title>
+    <link href="tool_base.css" type="text/css" rel="stylesheet" media="all">
+<link href="tool.css" type="text/css" rel="stylesheet" media="all">
+<script type="text/javascript" language="JavaScript" src="headscripts.js"></script>
+<script type="text/javascript" language="JavaScript">var sakai = sakai || {}; sakai.editor = sakai.editor || {};  sakai.locale = sakai.locale || {};
+sakai.locale.userCountry = 'US';
+sakai.locale.userLanguage = 'en';
+sakai.locale.userLocale = 'en_US';
+sakai.editor.collectionId = '/group/gtc-767b-329f-5a34-be9e-b76aebaea2ae/';
+sakai.editor.enableResourceSearch = false;</script>
+<script type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript" src="fckeditor.js"></script>
+<script type="text/javascript" language="JavaScript" src="fckeditor.launch.js"></script>
+	
+    
+    	            
+    
+  </head>
+  <body onload="setMainFrameHeight(&#39;Main8331abd3x5dd3x4ca1x9a3ex0d0183eb5c3f&#39;);setFocus(focus_path);" marginwidth="0" marginheight="0">
+<!-- $Id$ -->
+<!-- start: chef_assignments_student_view_submission.vm  -->
+<!-- $Id$ -->
+<!-- start:  assignment_macros.vm -->
+<!-- end:  assignment_macros.vm --><script type="text/javascript" src="jquery.js"></script>
+<link href="assignment.css" type="text/css" rel="stylesheet" media="all">
+<script type="text/javascript" src="assignments.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    setupToggleAreas('toggleAnchor', 'toggledContent', false, 'fast');
+    $('#submissionFileCount').val(1);
+    $('#addMoreAttachmentControls').click(function(e){
+        e.preventDefault();
+        if ($('#submissionFileCount').val() < 5) {
+            var $input = $('#clonableUpload').clone().removeAttr('id').addClass('cloned').appendTo('#clonedHolder').children('input');
+            $input.val('');
+            var $count = $('#submissionFileCount').val();
+            var $nameCount = "upload"+$count;
+            $input.attr("name", $nameCount);
+            $('#submissionFileCount').val(parseInt($('#submissionFileCount').val(), 10) + 1);
+            if ($('#submissionFileCount').val() == 5) {
+                $('#addMoreAttachmentControls').hide();
+                $('#addMoreAttachmentControlsInactive').show();
+            }
+        }
+        $('.cloned a').show();
+        resizeFrame('grow');
+    });
+    
+});
+var notifyDeleteControl = function(){
+    $('#submissionFileCount').val(parseInt($('#submissionFileCount').val(), 10) - 1);
+    if ($('#submissionFileCount').val() < 5) {
+        $('#addMoreAttachmentControls').show();
+        $('#addMoreAttachmentControlsInactive').hide();
+    }
+};
+
+function submitform(id)
+{
+	var theForm = document.getElementById(id);
+	if(theForm && theForm.onsubmit)
+	{
+		theForm.onsubmit();
+	}
+	if(theForm && theForm.submit)
+	{
+		theForm.submit();
+	}
+}
+		
+</script>
+
+
+<div class="portletBody">
+															<h3>Assignment
+																	<span class="highlight">
+						 	- In progress
+							</span>
+										</h3>
+																					<p class="instruction">
+									 Complete the form, then choose the appropriate button at the bottom.
+							</p>	
+						<table class="itemSummary" summary="The assignment info">
+				<tbody><tr>
+					<th>
+						Title
+					</th>
+					<td>
+						Assignment 2 - Onset Detection
+																	</td>
+				</tr>
+				<tr>
+					<th>
+						Due
+					</th>
+					<td>
+						Oct 19, 2015 11:55 pm
+					</td>
+				</tr>
+																					<tr>
+					<th>
+						Status
+					</th>
+					<td>
+													Not Started
+											</td>
+				</tr>
+																			<tr>	
+							<th>
+								Grade Scale
+							</th>
+							<td>
+								Points
+																	(max 100.0)
+															</td>
+						</tr>
+																						<tr>
+						<th>
+								Modified by instructor
+						</th>
+						<td>
+							Oct 12, 2015 5:43 pm
+						</td>
+					</tr>
+											</tbody></table>
+		<h4>
+			Instructions
+		</h4>
+		
+					<div class="textPanel"><br>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">Before you start:&nbsp;</div>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">-&nbsp;Please read the descriptions in the provided&nbsp;function templates and follow the input/ output format.</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">- For more information, please refer to the slides and textbook Ch6.3 (p.124)</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"><b>For the following questions (Q1 - Q3), generate two test signals:&nbsp;x1(t) = A*cos(2*pi*f*t), let {A = 0.5, f = 441 for 0 &lt;= t &lt; 1} and {A = 0.5, f = 882 for 1 &lt;= t &lt;= 2}),&nbsp;x2(t) = A*cos(2*pi*f*t), let {A = 0.5, f = 441 for 0 &lt;= t &lt; 1} and {A = 0.9, f = 441 for 1 &lt;= t &lt;= 2}).&nbsp;</b></div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">1. [15] Novelty function: spectral flux (textbook p.44, eq.3.30)</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<ul style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">
+    <li>Implement a matlab function:&nbsp; <b>[nvt] = mySpectralFlux(x, windowSize, hopSize)</b> that computes the block-wise spectral flux from the audio signal.&nbsp; &nbsp; &nbsp;</li>
+    <li>For the above mentioned test signals, compute their novelty functions and plot the results. Based on the results, locate the onset position (in second) and discuss the wether or not this novelty function is suitable for the test signals, why or why not?.</li>
+    <li>Hints: diff( )</li>
+</ul>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">2. [15] Novelty function: peak envelope (textbook p76, eq.4.9)</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<ul style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">
+    <li>Implement a matlab function:&nbsp; <b>[nvt] = myPeakEnv(x, windowSize, hopSize)</b> that computes the block-wise peak envelope from the audio signal.&nbsp; &nbsp; &nbsp;</li>
+    <li>For the above mentioned test signals, compute their novelty functions and plot the results. Based on the results, locate the onset position (in second) and discuss the wether or not this novelty function is suitable for the test signals, why or why not?.</li>
+</ul>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">3. [15] Novelty function: weighted phase deviation (attached paper, section 2.4)&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<ul style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">
+    <li>Implement a matlab function:&nbsp; <b>[nvt] = myWPD(x, windowSize, hopSize)</b> that computes the block-wise weighted phase deviation from the audio signal.</li>
+    <li>For the above mentioned test signals, compute their novelty functions and plot the results. Based on the results, locate the onset position (in second) and discuss the wether or not this novelty function is suitable for the test signals, why or why not?. &nbsp; &nbsp;</li>
+    <li>Hints: spectrogram( ), angle( ), unwrap( )</li>
+    <li>[4] Bonus: Implement your phase wrap and unwrap function and explain your method in the report.&nbsp;</li>
+</ul>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"><b>For the following questions (Q4 - 6), please use the attached training data.&nbsp;</b></div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">4. [15] Adaptive threshold: median filter (textbook p128, eq.6.15)</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<ul style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">
+    <li>Implement a matlab function: <b>[thres] = myMedianThres(nvt, order, lambda)</b> that computes the signal adaptive median threshold.&nbsp;</li>
+    <li>Read <u>‘2-artificial.wav’</u> in the training data (please see attached files), use any of the above novelty functions, compute the median threshold (for the first 3 seconds) and plot the threshold (in green) on top of the novelty function (in red). Please generate three figures with increasing “order” and another three figures with increasing “lambda”. Discuss the general trend by manipulating these parameters. What could be the cause of the “delay” in the adaptive threshold? How could we compensate this delay?</li>
+    <li>Hints: median( )</li>
+</ul>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">5. [15] Onset detection with adaptive thresholding</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<ul style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">
+    <li>Implement a matlab function: <b>[onsetTimeInSec] = myOnsetDetection(nvt, fs, windowSize, hopSize)</b> that calls your myMedianThres( ) function, apply the median thresholding, and detect the onsets.&nbsp;</li>
+    <li>For test signal x1(t) and x2(t), please select a suitable novelty function and use your thresholding function to detect the onset. Plot the novelty functions (in red) and their corresponding thresholds (in green). Please specify and discuss your selection of novelty function, parameters, and verify the results.&nbsp;</li>
+    <li>Hints: findpeaks( )&nbsp;</li>
+</ul>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">6.&nbsp;[15] Standard evaluation metrics: precision, recall and f-measure (textbook p.131, eq.6.19-6.21)&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<ul style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">
+    <li>Implement a matlab function: <b>[precision, recall, fmeasure] = evaluateOnsets(onsetTimeInSec, annotation, deltaTime)</b> that compares the detected onsets to the annotation and calculates the statistical evaluation measures.&nbsp;</li>
+    <li>To verify your implementation, you may use <u>testEval.mat</u>&nbsp;with deltaTime set to 50.&nbsp;You should get the precision = 0.50, recall = 0.10, fmeasure = 0.1667. In addition, verify your implementation with test = [ ] or ref = [ ], and your function should return 0 for all measures.&nbsp;</li>
+</ul>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">7.&nbsp;[10] Overall evaluation</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<ul style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">
+    <li>Report the average precision, average recall and average f-measure of the given training set. Specify and discuss your selection of adaptive thresholding parameters. &nbsp;</li>
+    <li>A reference result using <u>windowSize = 1024, hopSize = 256, deltaTime = 50 (ms)</u> is shown in the table. Please use the same parameters for your evaluation.</li>
+    <li>Your f-measures shouldn’t be 10% less than the reference implementation. Note that your functions will be tested on another testing set for final grading. (chose your parameters wisely)</li>
+</ul>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<span style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;"> </span>
+<table style="-evernote-table:true;border-collapse:collapse;table-layout:fixed;margin-left:0px;width:100%;font-family:&#39;Helvetica Neue&#39;;font-size:14px;">
+    <tbody>
+        <tr>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25.044404973357015%;">
+            <div>&nbsp;</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 24.955595026642985%;">
+            <div>Spectral Flux</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 24.955595026642985%;">
+            <div>Peak Envelope</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 24.955595026642985%;">
+            <div>Weighted Phase Deviation</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>Avg. Precision</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>0.455</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>0.706</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>0.602</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>Avg. Recall</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>0.724</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>0.375</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>0.698</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>Avg. F-measure</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>0.536</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>0.471</div>
+            </td>
+            <td style="border-style: solid; border-color: rgb(219, 219, 219); padding: 10px; margin: 0px; width: 25%;">
+            <div>0.615</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">&nbsp;</div>
+<div style="font-family:&#39;Helvetica Neue&#39;;font-size:14px;">Please include all your functions and report (pdf) in a zip file. (You don’t need to include the audio files.)&nbsp;</div></div>
+																																											<h4>
+				Additional resources for assignment
+			</h4>	
+				<ul class="attachList indnt1">
+																		<li>
+																	<img src="compressed.gif" border="0" alt="File attachment">
+																	<a href="https://t-square.gatech.edu/access/content/attachment/gtc-767b-329f-5a34-be9e-b76aebaea2ae/Assignments/186b23b6-4ed2-412b-a80e-513dacf2b474/musi6201_hw2.zip" target="_blank">musi6201_hw2.zip</a>						
+									<span class="textPanelFooter">(
+			4 KB;
+		Oct 4, 2015 10:28 pm
+	)</span>
+							</li>
+																								<li>
+																	<img src="compressed.gif" border="0" alt="File attachment">
+																	<a href="https://t-square.gatech.edu/access/content/attachment/gtc-767b-329f-5a34-be9e-b76aebaea2ae/Assignments/6796921a-a985-43c5-8539-877bc71f4205/ODB.zip" target="_blank">ODB.zip</a>						
+									<span class="textPanelFooter">(
+			20 MB;
+		Oct 4, 2015 10:29 pm
+	)</span>
+							</li>
+																								<li>
+																	<img src="pdf.gif" border="0" alt="File attachment">
+																	<a href="https://t-square.gatech.edu/access/content/attachment/gtc-767b-329f-5a34-be9e-b76aebaea2ae/Assignments/b58bb551-6748-4765-a865-9d53b5502b1f/Dixon%20-%202006%20-%20ONSET%20DETECTION%20REVISITED.pdf" target="_blank">Dixon - 2006 - ONSET DETECTION REVISITED.pdf</a>						
+									<span class="textPanelFooter">(
+			152 KB;
+		Oct 4, 2015 10:29 pm
+	)</span>
+							</li>
+																								<li>
+																	<img src="generic.gif" border="0" alt="File attachment">
+																	<a href="https://t-square.gatech.edu/access/content/attachment/gtc-767b-329f-5a34-be9e-b76aebaea2ae/Assignments/b300c8aa-9a4e-4c36-befb-5a083d9dab76/testEval.mat" target="_blank">testEval.mat</a>						
+									<span class="textPanelFooter">(
+			1 KB;
+		Oct 12, 2015 5:43 pm
+	)</span>
+							</li>
+															</ul>
+																									<hr class="itemSeparator">
+						<h3>Submission</h3> 
+		
+
+
+					<form name="addSubmissionForm" id="addSubmissionForm" action="8331abd3-5dd3-4ca1-9a3e-0d0183eb5c3f.html" method="post" onsubmit="return true;" enctype="multipart/form-data">
+		<input type="hidden" name="eventSubmit_doRead_add_submission_form" value="x">
+		<input type="hidden" name="option" id="option" value="cancel">
+		<input type="hidden" name="currentAttachment" value="">
+		<input type="hidden" name="assignmentId" value="/assignment/a/gtc-767b-329f-5a34-be9e-b76aebaea2ae/2711c42d-6474-4689-9b91-bd59b2655dde">
+																				
+							<h4>Assignment Text</h4>
+							<p class="instruction">
+																								This assignment allows submissions using both the text box below and attached documents. Type your comments in the box below and use the Add Attachments button to include other documents. Save frequently while working.
+																						</p>
+							<table border="0">
+								<tbody><tr>
+									<td>
+										<input type="hidden" id="Assignment.view_submission_text___Config" value="CurrentFolder=%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F&amp;ImageBrowserURL=%2Flibrary%2Feditor%2FFCKeditor%2Feditor%2Ffilemanager%2Fbrowser%2Fdefault%2Fbrowser.html%3FConnector%3D%2Fsakai-fck-connector%2Ffilemanager%2Fconnector%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F%26Type%3DImage%26CurrentFolder%3D%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F&amp;LinkBrowserURL=%2Flibrary%2Feditor%2FFCKeditor%2Feditor%2Ffilemanager%2Fbrowser%2Fdefault%2Fbrowser.html%3FConnector%3D%2Fsakai-fck-connector%2Ffilemanager%2Fconnector%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F%26Type%3DLink%26CurrentFolder%3D%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F&amp;FlashBrowserURL=%2Flibrary%2Feditor%2FFCKeditor%2Feditor%2Ffilemanager%2Fbrowser%2Fdefault%2Fbrowser.html%3FConnector%3D%2Fsakai-fck-connector%2Ffilemanager%2Fconnector%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F%26Type%3DFlash%26CurrentFolder%3D%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F&amp;ImageUploadURL=%2Fsakai-fck-connector%2Ffilemanager%2Fconnector%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F%3FType%3DImage%26Command%3DQuickUpload%26Type%3DImage%26CurrentFolder%3D%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F&amp;FlashUploadURL=%2Fsakai-fck-connector%2Ffilemanager%2Fconnector%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F%3FType%3DFlash%26Command%3DQuickUpload%26Type%3DFlash%26CurrentFolder%3D%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F&amp;LinkUploadURL=%2Fsakai-fck-connector%2Ffilemanager%2Fconnector%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F%3FType%3DFile%26Command%3DQuickUpload%26Type%3DLink%26CurrentFolder%3D%2Fgroup%2Fgtc-767b-329f-5a34-be9e-b76aebaea2ae%2F&amp;CustomConfigurationsPath=%2Flibrary%2Feditor%2FFCKeditor%2Fconfig.js" style="display:none"><iframe id="Assignment.view_submission_text___Frame" src="fckeditor.html" width="675" height="275" frameborder="0" scrolling="no" style="margin: 0px; padding: 0px; border: 0px; width: 675px; height: 275px; background-image: none; background-color: transparent;"></iframe><textarea cols="80" rows="30" wrap="virtual" name="Assignment.view_submission_text" id="Assignment.view_submission_text" style="display: none;"></textarea>						
+														<script type="text/javascript" defer="1">sakai.editor.launch('Assignment.view_submission_text');</script>	
+										</td>
+								</tr>
+							</tbody></table>
+																														
+																		<div class="highlightPanel" style="background:#ffe">
+					<h3 style="margin-top:0;margin-bottom:.5em">
+						Attachments
+					</h3>	
+																					<p class="instruction">No attachments yet</p>
+																<div class="highlightPanel specialLink" style="margin:0;padding-bottom:.5em;background:#fff">
+																																										<input type="hidden" name="submissionFileCount" id="submissionFileCount" value="1">
+									<table border="0" cellpadding="0" cellspacing="0" class="listHier  centerLines" style="width:auto;margin:0">
+										<tbody><tr>
+											<td>
+												<span>Select a file from computer</span>
+											</td>
+											<td>
+												<div id="clonableUpload"> 
+													<input type="file" name="upload" class="upload" id="clonableUpload" onchange="javascript:showNotif(&#39;submitnotifxxx&#39;,&#39;post&#39;,&#39;addSubmissionForm&#39;);document.getElementById(&#39;addSubmissionForm&#39;).action=&#39;https://t-square.gatech.edu/portal/tool/8331abd3-5dd3-4ca1-9a3e-0d0183eb5c3f?panel=Main&amp;sakai_action=doAttachUpload&#39;;submitform(&#39;addSubmissionForm&#39;);" "=""> 
+													<span id="submitnotifxxx" class="messageProgress" style="visibility:hidden">Uploading file(s)</span>
+												</div>
+											</td>
+											<td>
+												<span class="navIntraToolLink">
+													<input class="disableme enabled" type="button" value="or select files from workspace or site" name="attach" id="attach" accesskey="a" onclick="document.addSubmissionForm.onsubmit();document.addSubmissionForm.option.value=&#39;attach&#39;; document.addSubmissionForm.submit(); return false;">
+												</span>	
+											</td>
+										</tr>	
+										<tr>
+											<td></td>
+											<td id="clonedHolder"></td>
+											<td></td>
+											<td></td>										
+											</tr>
+									</tbody></table>	
+									
+																					</div>
+																							</div>
+				
+																														<div class="act messageInformation">
+							<input type="button" class="active" name="post" accesskey="s" id="post" value="Submit" onclick="document.addSubmissionForm.onsubmit();showNotif(&#39;submitnotif&#39;,&#39;post&#39;,&#39;addSubmissionForm&#39;); document.addSubmissionForm.option.value=&#39;post&#39;; document.addSubmissionForm.submit(); return false;">
+																	<input class="disableme" type="button" name="preview" accesskey="v" id="preview" value="Preview" onclick="document.addSubmissionForm.onsubmit();showNotif(&#39;submitnotif&#39;,&#39;preview&#39;,&#39;addSubmissionForm&#39;);document.addSubmissionForm.option.value=&#39;preview&#39;; document.addSubmissionForm.submit(); return false;">
+							<input class="disableme" type="button" name="save" accesskey="d" id="save" value="Save Draft" onclick="document.addSubmissionForm.onsubmit();showNotif(&#39;submitnotif&#39;,&#39;save&#39;,&#39;addSubmissionForm&#39;);document.addSubmissionForm.option.value=&#39;save&#39;; document.addSubmissionForm.submit(); return false;">
+														<input class="disableme" type="button" name="cancel" accesskey="x" id="cancel" value="Cancel" onclick="document.addSubmissionForm.onsubmit();document.addSubmissionForm.option.value=&#39;cancel&#39;; document.addSubmissionForm.submit(); return false;">
+							<span class="messageInformation">Don't forget to save or submit</span>
+									<span id="submitnotif" style="visibility:hidden">Processing......</span>
+			</div>
+			</form>
+	</div>
+<!-- end: chef_assignments_student_view_submission.vm  -->
+<iframe src="javascript:void(0)" frameborder="0" scrolling="no" style="margin: 0px; padding: 0px; border: 0px; height: 0px; width: 0px; position: absolute; z-index: 10000; background-image: none; background-color: transparent;"></iframe><iframe src="javascript:void(0)" frameborder="0" scrolling="no" style="margin: 0px; padding: 0px; border: 0px; height: 0px; width: 0px; position: absolute; z-index: 10000; background-image: none; background-color: transparent;"></iframe><iframe src="javascript:void(0)" frameborder="0" scrolling="no" style="margin: 0px; padding: 0px; border: 0px; height: 0px; width: 0px; position: absolute; z-index: 10000; background-image: none; background-color: transparent;"></iframe><iframe src="javascript:void(0)" frameborder="0" scrolling="no" style="margin: 0px; padding: 0px; border: 0px; height: 0px; width: 0px; position: absolute; z-index: 10000; background-image: none; background-color: transparent;"></iframe><iframe src="javascript:void(0)" frameborder="0" scrolling="no" style="margin: 0px; padding: 0px; border: 0px; height: 0px; width: 0px; position: absolute; z-index: 10000; background-image: none; background-color: transparent;"></iframe><iframe src="javascript:void(0)" frameborder="0" scrolling="no" style="margin: 0px; padding: 0px; border: 0px; height: 0px; width: 0px; position: absolute; z-index: 10000; background-image: none; background-color: transparent;"></iframe><iframe src="javascript:void(0)" frameborder="0" scrolling="no" style="margin: 0px; padding: 0px; border: 0px; height: 0px; width: 0px; position: absolute; z-index: 10000; background-image: none; background-color: transparent;"></iframe></body><script>window.FCKeditorAPI = {Version : "2.6.4.1",VersionBuild : "23187",Instances : window.FCKeditorAPI && window.FCKeditorAPI.Instances || {},GetInstance : function( name ){return this.Instances[ name ];},_FormSubmit : function(){for ( var name in FCKeditorAPI.Instances ){var oEditor = FCKeditorAPI.Instances[ name ] ;if ( oEditor.GetParentForm && oEditor.GetParentForm() == this )oEditor.UpdateLinkedField() ;}this._FCKOriginalSubmit() ;},_FunctionQueue	: window.FCKeditorAPI && window.FCKeditorAPI._FunctionQueue || {Functions : new Array(),IsRunning : false,Add : function( f ){this.Functions.push( f );if ( !this.IsRunning )this.StartNext();},StartNext : function(){var aQueue = this.Functions ;if ( aQueue.length > 0 ){this.IsRunning = true;aQueue[0].call();}else this.IsRunning = false;},Remove : function( f ){var aQueue = this.Functions;var i = 0, fFunc;while( (fFunc = aQueue[ i ]) ){if ( fFunc == f )aQueue.splice( i,1 );i++ ;}this.StartNext();}}}</script></html>
