@@ -18,9 +18,10 @@ for n = 1:blockNum
 	i_stop          = i_start + windowSize - 1;
     spectrumsOfDividedSignal(n, :)   = fft(paddedSignal(i_start:i_stop)); 
 end
-    difference          = diff(spectrumsOfDividedSignal);
-    conjuOfDifference   = conj(difference);
-    spectralFlux        = sqrt(sum(difference.*conjuOfDifference))/windowSize;
-
+   difference          = diff(spectrumsOfDividedSignal);
+   conjuOfDifference   = conj(difference);
+   spectralFlux        = sqrt(sum(difference.*conjuOfDifference))/windowSize;
+%     difference          = diff(abs(spectrumsOfDividedSignal));
+%     spectralFlux        = sqrt(sum(difference.^2))/windowSize;
 end
 
