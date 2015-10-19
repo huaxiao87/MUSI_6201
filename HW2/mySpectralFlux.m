@@ -1,3 +1,12 @@
+%% Novelty function: spectral flux
+% [nvt] = myPeakEnv(x, w, windowSize, hopSize)
+% input: 
+%   x: N by 1 float vector, input signal
+%   windowSize: int, number of samples per block
+%   hopSize: int, number of samples per hop
+% output: 
+%   nvt: n by 1 float vector, the resulting novelty function 
+
 function [nvt] = mySpectralFlux( x, windowSize, hopSize )
 % computes the spectral flux for onset detection
 % number of results
@@ -21,7 +30,12 @@ end
 %    difference          = diff(spectrumsOfDividedSignal);
 %    conjuOfDifference   = conj(difference);
 %    spectralFlux        = sqrt(sum(difference.*conjuOfDifference))/windowSize;
+
+%   calculate the difference
     difference = diff(abs(spectrumsOfDividedSignal));
     nvt        = sqrt(sum(difference.^2))/windowSize;
 end
 
+
+
+% YOUR CODE HERE: 
