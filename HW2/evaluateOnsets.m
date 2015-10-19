@@ -43,6 +43,6 @@ for i = 1:length(annotation)
 end
 
 precision       = truePositive / detectedOnsets;
-recall          = truePositive / (truePositive + falseNegative);
+recall          = truePositive / length(annotation);
 fmeasure        = 2 * precision * recall / (precision + recall);
 end
