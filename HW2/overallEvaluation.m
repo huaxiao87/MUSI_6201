@@ -1,6 +1,6 @@
 %deltaTime  : a float in millisecond
 %funcTime   : a string, specify the name of the function 
-function [averagePrecision,averageRecall, averageFMeasure] = overallEvaluation(deltaTime, funcionName)
+function [averagePrecision,averageRecall, averageFMeasure] = overallEvaluation(deltaTime, funcName)
 
 %initialization
 
