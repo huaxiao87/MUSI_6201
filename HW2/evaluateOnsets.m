@@ -29,19 +29,6 @@ for i = 1:length(onsetTimeInSec)
    end
 end
 
-%count the falseNegative
-%for each element in annotation, check if exists any element in onsetTimeInSec 
-%(detected onsets) that can cover it with the tolerance. If so, then the
-%number of falseNegative decrease by 1
-for i = 1:length(annotation)
-   for j= 1:length(onsetTimeInSec)
-    if annotation(i) <= onsetTimeInSec(j)+dTime && annotation(i)>= onsetTimeInSec(j)-dTime
-        falseNegative = falseNegative - 1;
-        break
-    end
-   end
-end
-
 precision       = truePositive / detectedOnsets;
 recall          = truePositive / length(annotation);
 fmeasure        = 2 * precision * recall / (precision + recall);
