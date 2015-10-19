@@ -12,7 +12,6 @@
 function [precision, recall, fmeasure] = evaluateOnsets(onsetTimeInSec, annotation, deltaTime)
 % initialization
 truePositive    = 0;
-falseNegative   = length(annotation);
 detectedOnsets  = length(onsetTimeInSec);
 dTime           = deltaTime/1000;
 
