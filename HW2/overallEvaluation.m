@@ -1,7 +1,16 @@
+%deltaTime  : a float in millisecond
+%funcTime   : a string, specify the name of the function 
 function [averagePrecision,averageRecall, averageFMeasure] = overallEvaluation(deltaTime, funcionName)
+
 %initialization
+
+%where is the groundTruth?
 groundTruthDir      = 'ODB/ODB/ground truth';
+
+%where is the audio data?
 audioDir            = 'ODB/ODB/audio'; 
+
+
 groundTruthFileList = dir(groundTruthDir);
 audioList           = dir(audioDir);
 precision           = 0;
@@ -19,12 +28,14 @@ for i=3:length(audioList)
     
     %evaluate the function
     [P,R,F]     = evaluateOnsets(detectedOnsets,annotation,deltaTime);
+    
+    %sum up the value of the three varibles for the fmeasure
     precision   = precision + P;
     recall      = recall + R;
     fmeasure    = fmeasure + F;
 end
 
-%calculates the evaluation
+%calculates the average evaluation
 averagePrecision    = precision / length(audioList);
 averageRecall       = recall / length(audioList);
 averageFMeasure     = fmeasure / length(audioList);
