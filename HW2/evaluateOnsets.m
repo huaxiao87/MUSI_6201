@@ -22,7 +22,7 @@ dTime           = deltaTime/1000;
 %the number of truePositive increase by 1
 for i = 1:length(onsetTimeInSec)
    for j= 1:length(annotation)
-    if annotation(j) < onsetTimeInSec(i)+dTime && annotation(j)> onsetTimeInSec(i)-dTime
+    if annotation(j) <= onsetTimeInSec(i)+dTime && annotation(j)>= onsetTimeInSec(i)-dTime
         truePositive = truePositive + 1;
         break
     end
@@ -35,7 +35,7 @@ end
 %number of falseNegative decrease by 1
 for i = 1:length(annotation)
    for j= 1:length(onsetTimeInSec)
-    if annotation(i) < onsetTimeInSec(j)+dTime && annotation(i)> onsetTimeInSec(j)-dTime
+    if annotation(i) <= onsetTimeInSec(j)+dTime && annotation(i)>= onsetTimeInSec(j)-dTime
         falseNegative = falseNegative - 1;
         break
     end
