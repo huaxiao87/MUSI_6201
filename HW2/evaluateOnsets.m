@@ -14,6 +14,7 @@ function [precision, recall, fmeasure] = evaluateOnsets(onsetTimeInSec, annotati
 truePositive    = 0;
 detectedOnsets  = length(onsetTimeInSec);
 dTime           = deltaTime/1000;
+totalRefOnsets  = length(annotation);
 
 %count the truePositive
 %for each element in onsetTimeInSec, check if there exists any element in
@@ -22,13 +23,14 @@ dTime           = deltaTime/1000;
 for i = 1:length(onsetTimeInSec)
    for j= 1:length(annotation)
     if annotation(j) <= onsetTimeInSec(i)+dTime && annotation(j)>= onsetTimeInSec(i)-dTime
-        truePositive = truePositive + 1;
+        truePositive    = truePositive + 1;
+        annotation(j)   = [];
         break
     end
    end
 end
 
 precision       = truePositive / detectedOnsets;
-recall          = truePositive / length(annotation);
+recall          = truePositive / totalRefOnsets;
 fmeasure        = 2 * precision * recall / (precision + recall);
 end
