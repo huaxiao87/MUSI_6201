@@ -8,34 +8,13 @@
 % output: 
 %   nvt: m by 1 float vector, the resulting novelty function 
 
-function [nvt] = myWPD(x, windowSize, hopSize) 
-% computes the spectral flux for onset detection
-% number of results
-blockNum        = ceil(length(x)/hopSize);
+function [nvt] = myWPD(x, windowSize, hopSize)
 
-% zero-padding the signal
-xAllZeros               = zeros(1,blockNum * hopSize + windowSize - 1);
-xAllZeros(1:length(x))  = x;
-paddedSignal            = xAllZeros;
+% YOUR CODE HERE: 
+stftMatrix = spectrogram(x, windowSize, windowSize - hopSize);
+numBlocks = size(stftMatrix, 2);
+angleMatrix = unwrap(angle(stftMatrix));
+nvt = mean(abs(stftMatrix(:, 3:numBlocks).* diff(angleMatrix, 2, 2)));
+nvt = nvt';
 
-% allocate memory
-phaseOfDividedSignal    = zeros(blockNum,windowSize);
-nvt                     = zeros(1,blockNum-1);
-
-% divide the signal into blocks
-for n = 1:blockNum
-	i_start                         = (n-1) * hopSize + 1;
-	i_stop                          = i_start + windowSize - 1;
-    spectrumOfDividedSignal(n, :)   = fft(paddedSignal(i_start:i_stop));
-    phaseOfDividedSignal            = angle(spectrumOfDividedSignal); 
-    
-end
-
-    difference              = diff(phaseOfDividedSignal);
-    secondOrderDifference   = unwrap(diff(difference));
-    for i=1:blockNum-2
-        nvt(i)              = sum(abs(phaseOfDividedSignal(i,:).*spectrumOfDividedSignal(i,:)))/windowSize;
-    end
-                         
-end
-
+% unwrap...
