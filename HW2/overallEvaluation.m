@@ -1,5 +1,5 @@
 %deltaTime  : a float in millisecond
-%funcName   : a string, specify the name of the function 
+%funcName   : a string that specifies the name of the function 
 function [averagePrecision,averageRecall, averageFMeasure] = overallEvaluation(windowSize, hopSize, deltaTime, funcName)
 
 %initialization
