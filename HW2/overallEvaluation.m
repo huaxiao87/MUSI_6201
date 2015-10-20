@@ -26,10 +26,8 @@ for i=3:length(audioList)-1
     annotation      = theTextFile{1};
     
 	%load the wave file
-
     [testSig,fs]    = audioread([audioDir,'/',audioList(i+1).name]);  %<-----Here's the problem
-    %[x,fs] = audioread();
-    
+
     %load the function to detect onsets
     func            = str2func(funcName);
     
@@ -37,7 +35,8 @@ for i=3:length(audioList)-1
     nvt             = func(testSig, windowSize, hopSize);
     detectedOnsets  = myOnsetDetection(nvt, fs, windowSize, hopSize);
     [P,R,F]         = evaluateOnsets(detectedOnsets,annotation,deltaTime);
-    %sum up the value of the three varibles for the fmeasure
+    
+    %sum up the value of the three varibles
     precision   = precision + P;
     recall      = recall + R;
     fmeasure    = fmeasure + F;
