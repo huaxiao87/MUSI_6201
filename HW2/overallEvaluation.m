@@ -13,6 +13,7 @@ audioDir            = 'ODB/ODB/audio';
 
 groundTruthFileList = dir(groundTruthDir);
 audioList           = dir(audioDir);
+numFiles            = (length(audioList)-3);
 precision           = 0;
 recall              = 0;
 fmeasure            = 0;
@@ -43,7 +44,7 @@ for i=3:length(audioList)-1
 end
  
 %calculates the average evaluation
-averagePrecision    = precision / length(audioList);
-averageRecall       = recall / length(audioList);
-averageFMeasure     = fmeasure / length(audioList);
+averagePrecision    = precision / numFiles;
+averageRecall       = recall / numFiles;
+averageFMeasure     = fmeasure / numFiles;
 end
